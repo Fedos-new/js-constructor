@@ -1,8 +1,8 @@
 import image from './assets/pic.png'
-import {Block} from './classes/blocks'
+import {ColumnsBlock, ImageBlock, TextBlock, TitleBlock} from './classes/blocks'
 
 export const model = [
-    new Block('title', 'Конструктор сайтов на чистом JS', {
+    new TitleBlock('Конструктор сайтов на чистом JS', {
         tag: 'h2',
         styles: {
             background: 'linear-gradient(to top, #7ecdee, #fff)',
@@ -11,7 +11,7 @@ export const model = [
             'text-align': 'center',
         }
     }),
-    new Block('image', image, {
+    new ImageBlock( image, {
         styles: {
             'justify-content': 'center',
             'display': 'flex',
@@ -23,7 +23,7 @@ export const model = [
         },
         alt: 'картинка'
     }),
-    new Block('text', 'Сделай набросок сайта сам прямо здесь', {
+    new TextBlock( 'Сделай набросок сайта сам прямо здесь', {
         tag: "p",
         styles: {
             'font-size': '20px',
@@ -32,7 +32,7 @@ export const model = [
         }
 
     }),
-    new Block('columns', [
+    new ColumnsBlock( [
             "Ты можешь добавить заголовок",
             "Ты можешь добавить текст",
             "Ты можешь добавить картинку",
@@ -43,6 +43,5 @@ export const model = [
                 padding: '1.5rem',
                 'font-style': 'italic'
             }
-        }
-    )
+        })
 ]
