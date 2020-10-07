@@ -7,8 +7,8 @@ function title(block) {
 }
 
 function text(block) {
-    const tag = block.options.tag ?? 'p'
-    return row(col(`<${tag}>${block.value}</${tag}>`))
+    const {tag ='p', styles} = block.options
+    return row(col(`<${tag}>${block.value}</${tag}>`),css(styles))
 }
 
 function columns(block) {
@@ -18,8 +18,8 @@ function columns(block) {
 }
 
 function image(block) {
-    const  {styles} = block.options
-    return row(`<img src="${block.value}" >`, css(styles))
+    const  {styles, imageStyles: S, alt} = block.options
+    return row(`<img src="${block.value}" alt="${alt}" style="${css(S)}">`, css(styles))
 }
 
 
