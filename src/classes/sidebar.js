@@ -1,5 +1,5 @@
 import {block} from "../utils";
-import {TextBlock, TitleBlock} from "./blocks";
+import {ColumnsBlock, ImageBlock, TextBlock, TitleBlock} from "./blocks";
 
 export class Sidebar {
     constructor(selector, updateCallback) {
@@ -18,6 +18,8 @@ export class Sidebar {
         return [
             block('text'),
             block('title'),
+            block('image'),
+            block('columns'),
             ].join('')
     }
 
@@ -26,14 +28,27 @@ export class Sidebar {
 
         const type = event.target.name
         const value = event.target.value.value
+        const valueColumns = event.target.value.value.split(':')
         const styles = event.target.styles.value
 
-        const newBlock = type === 'text'
-            ? new TextBlock(value,{styles})
-            : new TitleBlock(value,{styles})
+        let newBlock;
+        checkTypeBlock();
 
+        function checkTypeBlock() {
 
-        debugger
+            switch (type) {
+                case 'title':
+                    return newBlock = new TitleBlock(value, {styles});
+                case 'image':
+                    return newBlock = new ImageBlock(value, {styles});
+                case 'columns':
+                    return newBlock = new ColumnsBlock(valueColumns, {styles});
+                default:
+                    return newBlock = new TextBlock(value, {styles});
+            }
+
+        }
+
         this.update(newBlock)
         event.target.value.value = ''
         event.target.styles.value = ''

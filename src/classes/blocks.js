@@ -17,7 +17,7 @@ export class  TitleBlock extends Block {
         super( value, options)
     }
     toHTML() {
-        const {tag = 'h1', styles} = this.options //используем десруктуризация
+        const {tag = 'h1', styles} = this.options
         return row(col(`<${tag}>${this.value}</${tag}>`),css(styles))
     }
 }
@@ -47,6 +47,6 @@ export class  ColumnsBlock extends Block {
     }
     toHTML() {
         const  {styles} = this.options
-        return row(this.value.map(col).join(''),css(styles))
+        return  row(this.value.map(col).join(''),css(styles))
     }
 }

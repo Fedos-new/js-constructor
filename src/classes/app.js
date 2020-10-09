@@ -1,5 +1,4 @@
 import {Site} from "./site";
-
 import {Sidebar} from "./sidebar";
 
 export class App {

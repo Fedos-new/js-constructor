@@ -22,17 +22,29 @@ export function css(styles={}) {
 }
 
 export function block(type) {
+
+    function typesCheck (type) {
+        switch (type) {
+            case 'image':
+                return 'url картинки'
+            case 'columns':
+                return `столбцы через :`
+            default:
+                return 'Введи текст'
+        }
+    }
+
     return `
     <form name="${type}">
-      <h5>${type}</h5>
+      <h5>Добавление ${type}</h5>
       <div class="form-group">
-        <input class="form-control form-control-sm" name="value" placeholder="value">
+        <input class="form-control form-control-sm" name="value" placeholder="${typesCheck(type)}">
       </div>
       <div class="form-group">
-        <input class="form-control form-control-sm" name="styles" placeholder="styles">
+        <input class="form-control form-control-sm" name="styles" placeholder="Введи свойсва CSS c ;">
       </div>
       <button type="submit" class="btn btn-primary btn-sm">Добавить</button>
     </form>
     <hr />
-  `
+    `
 }

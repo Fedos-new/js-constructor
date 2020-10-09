@@ -2,7 +2,9 @@ import image from './assets/pic.png'
 import {ColumnsBlock, ImageBlock, TextBlock, TitleBlock} from './classes/blocks'
 
 export const model = [
-    new TitleBlock('Конструктор сайтов на чистом JS', {
+
+
+    new TitleBlock('Вывод элементов на сайте (чистый JS)', {
         tag: 'h2',
         styles: {
             background: 'linear-gradient(to top, #7ecdee, #fff)',
@@ -23,7 +25,7 @@ export const model = [
         },
         alt: 'картинка'
     }),
-    new TextBlock( 'C помощью конструктора сайта ты сам, прямо здесь, сможешь:', {
+    new TextBlock( 'Здесь будут показыватся элементы:', {
         tag: "p",
         styles: {
             'font-size': '20px',
@@ -34,10 +36,10 @@ export const model = [
 
     }),
     new ColumnsBlock( [
-            "добавить заголовок",
-            "добавить текст",
-            "добавить картинку",
-            "другие блоки"
+            "",
+            "",
+            "",
+            ""
         ], {
             styles: {
                 color: '#192B59',
